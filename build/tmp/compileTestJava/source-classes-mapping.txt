@@ -1,0 +1,6 @@
+Day1Test.java
+ Day1Test
+AbstractAdventTest.java
+ AbstractAdventTest
+Day2Test.java
+ Day2Test
