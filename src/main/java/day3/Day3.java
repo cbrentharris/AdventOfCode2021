@@ -1,25 +1,22 @@
 package day3;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Day3 {
 
   public static int powerConsuption(List<BitSet> bitSets) {
-    if (bitSets.size() == 0) {
-      return 0;
-    }
-
-    int numBits = 12;
+    int numBits = getMaxBitSetLength(bitSets);
     BitSet gammaBits = new BitSet(numBits);
     BitSet epsilonBits = new BitSet(numBits);
-    for (int i = 0; i < numBits; i++) {
+    for (int i = numBits - 1; i >= 0; i--) {
       Map<Boolean, Long> frequencies = getBitFrequencies(bitSets, i);
 
       boolean largestBit = frequencies.getOrDefault(true, 0L) > frequencies.getOrDefault(false, 0L);
@@ -27,41 +24,28 @@ public class Day3 {
       gammaBits.set(i, largestBit);
       epsilonBits.set(i, !largestBit);
     }
-    int gamma = toInt(gammaBits, numBits);
-    int epsilon = toInt(epsilonBits, numBits);
-    return gamma * epsilon;
+    return toShort(gammaBits) * toShort(epsilonBits);
   }
 
-  public static int lifeSupport(List<BitSet> bitSets, int numBits) {
-    Set<BitSet> oxygenRatings = new HashSet<>(bitSets);
-    Set<BitSet> co2ScrubberRatings = new HashSet<>(bitSets);
-    for (int i = 0; i < numBits; i++) {
+  public static int lifeSupport(List<BitSet> bitSets) {
+    int numBits = getMaxBitSetLength(bitSets);
+    List<BitSet> oxygenRatings = bitSets.subList(0, bitSets.size());
+    List<BitSet> co2ScrubberRatings = bitSets.subList(0, bitSets.size());
+    // Traverse MSB to LSB
+    for (int i = numBits - 1; i >= 0; i--) {
       boolean oxygenBit = mostCommonBit(oxygenRatings, i);
       boolean co2Bit = leastCommonBit(co2ScrubberRatings, i);
       oxygenRatings = filter(i, oxygenRatings, oxygenBit);
       co2ScrubberRatings = filter(i, co2ScrubberRatings, co2Bit);
     }
-    int oxygenScrubberRating = toInt(oxygenRatings.iterator().next(), numBits);
-    int co2ScrubberRating = toInt(co2ScrubberRatings.iterator().next(), numBits);
-    return oxygenScrubberRating * co2ScrubberRating;
+    return toShort(oxygenRatings.get(0)) * toShort(co2ScrubberRatings.get(0));
   }
 
-  private static Set<BitSet> filter(int i, Set<BitSet> ratings, boolean valueToKeep) {
+  private static List<BitSet> filter(int i, List<BitSet> ratings, boolean valueToKeep) {
     if (ratings.size() == 1) {
       return ratings;
     }
-    return ratings.stream().filter(b -> b.get(i) == valueToKeep).collect(Collectors.toSet());
-  }
-
-  /** Manual conversion of an bit set to an int, unsigned with a max number of bits */
-  private static int toInt(BitSet b, int numBits) {
-    int res = 0;
-    for (int i = numBits - 1; i >= 0; i--) {
-      if (b.get(i)) {
-        res = res + ((Double) Math.pow(2, numBits - 1 - i)).intValue();
-      }
-    }
-    return res;
+    return ratings.stream().filter(b -> b.get(i) == valueToKeep).collect(Collectors.toList());
   }
 
   /** How often a 0 or 1 occurs in a list of bit sets */
@@ -83,5 +67,15 @@ public class Day3 {
   private static boolean mostCommonBit(Collection<BitSet> bitSets, int bitIndex) {
     Map<Boolean, Long> frequencies = getBitFrequencies(bitSets, bitIndex);
     return frequencies.getOrDefault(true, 0L) >= frequencies.getOrDefault(false, 0L);
+  }
+
+  private static short toShort(BitSet b) {
+    ByteBuffer bb = ByteBuffer.allocate(2).put(Arrays.copyOf(b.toByteArray(), 2));
+    bb.order(ByteOrder.LITTLE_ENDIAN);
+    return bb.getShort(0);
+  }
+
+  private static int getMaxBitSetLength(List<BitSet> bitSets) {
+    return bitSets.stream().mapToInt(BitSet::length).max().getAsInt();
   }
 }
