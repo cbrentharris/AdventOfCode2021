@@ -6,6 +6,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Data
 public class Pair<V1, V2> {
-  private V1 first;
-  private V2 second;
+  private final V1 first;
+  private final V2 second;
 }

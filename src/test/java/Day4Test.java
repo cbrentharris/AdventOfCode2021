@@ -73,9 +73,7 @@ public class Day4Test extends AbstractAdventTest {
       boards.add(new BingoBoard(boardSquares.subList(i, i + BOARD_SIZE)));
     }
 
-    Pair<List<BingoSquare>, List<BingoBoard>> squaresAndBoards = new Pair<>();
-    squaresAndBoards.setFirst(calledSquares);
-    squaresAndBoards.setSecond(boards);
+    Pair<List<BingoSquare>, List<BingoBoard>> squaresAndBoards = new Pair<>(calledSquares, boards);
     return squaresAndBoards;
   }
 }
