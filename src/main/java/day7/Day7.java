@@ -15,16 +15,14 @@ public class Day7 {
   }
 
   public static int realFuelCost(List<CrabSubmarine> crabSubmarines) {
-    int minPos = positionStream(crabSubmarines).min().getAsInt();
-    int maxPos = positionStream(crabSubmarines).max().getAsInt();
-    return IntStream.range(minPos, maxPos + 1)
-        .map(
-            startPos ->
-                positionStream(crabSubmarines)
-                    .map(endPos -> getRealFuelCost(startPos, endPos))
-                    .sum())
-        .min()
-        .getAsInt();
+    double avg = positionStream(crabSubmarines).average().getAsDouble();
+    int highEnd = (int) Math.ceil(avg);
+    int lowEnd = (int) Math.floor(avg);
+    int lowSum =
+        positionStream(crabSubmarines).map(startPos -> getRealFuelCost(startPos, lowEnd)).sum();
+    int highSum =
+        positionStream(crabSubmarines).map(startPos -> getRealFuelCost(startPos, highEnd)).sum();
+    return Math.min(lowSum, highSum);
   }
 
   private static int getFuelCost(int startPos, int endPos) {
