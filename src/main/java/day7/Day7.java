@@ -5,12 +5,13 @@ import java.util.stream.IntStream;
 
 public class Day7 {
   public static int minimumFuelCostToAlign(List<CrabSubmarine> crabSubmarines) {
-    return positionStream(crabSubmarines)
-        .map(
-            endPos ->
-                positionStream(crabSubmarines).map(startPos -> getFuelCost(startPos, endPos)).sum())
-        .min()
-        .getAsInt();
+    int median =
+        positionStream(crabSubmarines)
+            .sorted()
+            .skip(crabSubmarines.size() / 2)
+            .findFirst()
+            .getAsInt();
+    return positionStream(crabSubmarines).map(startPos -> getFuelCost(startPos, median)).sum();
   }
 
   public static int realFuelCost(List<CrabSubmarine> crabSubmarines) {
