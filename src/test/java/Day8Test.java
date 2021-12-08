@@ -2,7 +2,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import day4.Pair;
 import day8.Day8;
-import day8.SegmentPattern;
+import day8.EncodedSignalPatterns;
 import day8.SevenSegmentNumber;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,13 +32,13 @@ public class Day8Test extends AbstractAdventTest {
     assertThat(Day8.sumOfDecodedNumbers(getPatternsAndNumbers("./day8.txt"))).isEqualTo(946346);
   }
 
-  private List<Pair<SegmentPattern, List<SevenSegmentNumber>>> getPatternsAndNumbers(
+  private List<Pair<EncodedSignalPatterns, List<SevenSegmentNumber>>> getPatternsAndNumbers(
       String fileName) {
     return Stream.of(getData(fileName).split("\n"))
         .map(
             line -> {
               String[] parts = line.split(" \\| ");
-              SegmentPattern pattern = new SegmentPattern(parts[0]);
+              EncodedSignalPatterns pattern = new EncodedSignalPatterns(parts[0]);
               List<SevenSegmentNumber> numbers =
                   Stream.of(parts[1].split(" "))
                       .map(SevenSegmentNumber::new)

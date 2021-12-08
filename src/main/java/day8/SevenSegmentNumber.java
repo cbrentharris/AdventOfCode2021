@@ -6,11 +6,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Data
 public class SevenSegmentNumber {
-  private final String input;
-  private int[] encoding;
+  private final String encodedInput;
 
-  public int actualNumber() {
-    int size = input.length();
+  public int guessNumber() {
+    int size = encodedInput.length();
     switch (size) {
       case 2:
         return 1;
