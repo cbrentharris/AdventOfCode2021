@@ -22,15 +22,21 @@ public class EncodedSignalPatterns {
   /**
    * Decode the signals from input. The logic is as follows:
    *
-   * <p>We can decode 1 as it is the only seven segment number with 2 segments We can decode 4 as it
-   * is the only seven segment number with 4 segments We can decode 7 as it is the only seven
-   * segment number with 3 segments We can decode 8 as it is the only seven segment number with 7
-   * segments We can decode 6 because it should only contain half of 1's segments and have 6
-   * segments We can decode 5 because it should only contain all of 6's segments except 1 and have 5
-   * segments We can decode 3 because it should only contain all of 1's segments and have 5 segments
-   * We can decode 0 because it should contain all the left bar and right bar segments s segments
-   * and have 6 segments We can decode 9 because it should contain only half of the the left bar and
-   * have 6 segments
+   * <ul>
+   *   <li>We can decode 1 as it is the only seven segment number with 2 segments
+   *   <li>We can decode 4 as it is the only seven segment number with 4 segments
+   *   <li>We can decode 4 as it is the only seven segment number with 4 segments
+   *   <li>We can decode 7 as it is the only seven segment number with 3 segments
+   *   <li>We can decode 8 as it is the only seven segment number with 7 segments
+   *   <li>We can decode 6 because it should only contain half of 1's segments and have 6 segments
+   *   <li>We can decode 5 because it should only contain all of 6's segments except 1 and have 5
+   *       segments
+   *   <li>We can decode 3 because it should only contain all of 1's segments and have 5 segments
+   *   <li>We can decode 0 because it should contain all the left bar and right bar segments s
+   *       segments and have 6 segments
+   *   <li>We can decode 9 because it should contain only half of the the left bar and have 6
+   *       segments
+   * </ul>
    */
   public Map<String, String> decodeSignals() {
     List<String> signals = Stream.of(pattern.split(" ")).collect(Collectors.toList());
