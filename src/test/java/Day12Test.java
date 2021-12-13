@@ -1,9 +1,9 @@
+import static org.assertj.core.api.Assertions.assertThat;
+
 import day12.CaveGraph;
 import day12.Day12;
 import io.vavr.collection.List;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class Day12Test extends AbstractAdventTest {
   @Test

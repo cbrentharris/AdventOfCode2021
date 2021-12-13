@@ -2,7 +2,6 @@ package day12;
 
 import io.vavr.Tuple2;
 import io.vavr.collection.*;
-
 import java.util.Stack;
 
 public class CaveGraph {
@@ -39,9 +38,9 @@ public class CaveGraph {
     List<String[]> parts = input.map(i -> i.split("-"));
 
     Map<String, Set<String>> leftSide =
-        parts.groupBy(a -> a[0].strip()).mapValues(l -> l.map(a -> a[1].strip()).toSet());
+        parts.groupBy(a -> a[0].trim()).mapValues(l -> l.map(a -> a[1].trim()).toSet());
     Map<String, Set<String>> rightSide =
-        parts.groupBy(a -> a[1].strip()).mapValues(l -> l.map(a -> a[0].strip()).toSet());
+        parts.groupBy(a -> a[1].trim()).mapValues(l -> l.map(a -> a[0].trim()).toSet());
     adjacencyList = leftSide.merge(rightSide, Set::union);
   }
 
