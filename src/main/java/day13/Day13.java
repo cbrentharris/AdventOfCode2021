@@ -42,7 +42,7 @@ public class Day13 {
       newGrid[rowIndex] = newRow;
     }
 
-    for (int rowIndex = 0; rowIndex < oldRowEnding; rowIndex++) {
+    for (int rowIndex = 0; rowIndex < newRowEnding; rowIndex++) {
       for (int colIndex = 0; colIndex < newColumnEnding; colIndex++) {
         if (grid[rowIndex][colIndex] != HASHTAG) {
           // Transpose LEFT
@@ -80,7 +80,7 @@ public class Day13 {
         if (c == null) {
           sb.append(".");
         } else {
-          sb.append("#");
+          sb.append("■");
         }
       }
       sb.append("\n");
