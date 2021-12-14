@@ -78,7 +78,7 @@ public class Day13 {
     for (Character[] characters : grid) {
       for (Character c : characters) {
         if (c == null) {
-          sb.append(".");
+          sb.append(" ");
         } else {
           sb.append("■");
         }
