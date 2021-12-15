@@ -11,7 +11,7 @@ import lombok.Value;
 public class Day11 {
   @Value
   @RequiredArgsConstructor
-  private static class Point {
+  public static class Point {
     int row;
     int col;
   }
