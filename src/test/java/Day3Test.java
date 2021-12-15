@@ -1,6 +1,6 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day3.Day3;
+import advent.day3.Day3;
 import java.util.BitSet;
 import java.util.List;
 import java.util.stream.Collectors;

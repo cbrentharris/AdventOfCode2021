@@ -1,8 +1,8 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day14.Day14;
-import day14.InsertionRule;
-import day14.PolymerChain;
+import advent.day14.Day14;
+import advent.day14.InsertionRule;
+import advent.day14.PolymerChain;
 import io.vavr.Tuple2;
 import io.vavr.collection.List;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day11.Day11;
+import advent.day11.Day11;
 import org.junit.jupiter.api.Test;
 
 public class Day11Test extends AbstractAdventTest {

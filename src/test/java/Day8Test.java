@@ -1,9 +1,9 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day4.Pair;
-import day8.Day8;
-import day8.EncodedSignalPatterns;
-import day8.SevenSegmentNumber;
+import advent.day4.Pair;
+import advent.day8.Day8;
+import advent.day8.EncodedSignalPatterns;
+import advent.day8.SevenSegmentNumber;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -11,24 +11,24 @@ import org.junit.jupiter.api.Test;
 
 public class Day8Test extends AbstractAdventTest {
   @Test
-  public void day7Part1Test() {
+  public void day8Part1Test() {
     assertThat(Day8.countOfOnesFoursSevensAndEights(getPatternsAndNumbers("./day8-test.txt")))
         .isEqualTo(26);
   }
 
   @Test
-  public void day7Part1() {
+  public void day8Part1() {
     assertThat(Day8.countOfOnesFoursSevensAndEights(getPatternsAndNumbers("./day8.txt")))
         .isEqualTo(239);
   }
 
   @Test
-  public void day7Part2Test() {
+  public void day8Part2Test() {
     assertThat(Day8.sumOfDecodedNumbers(getPatternsAndNumbers("./day8-test.txt"))).isEqualTo(61229);
   }
 
   @Test
-  public void day7Part2() {
+  public void day8Part2() {
     assertThat(Day8.sumOfDecodedNumbers(getPatternsAndNumbers("./day8.txt"))).isEqualTo(946346);
   }
 

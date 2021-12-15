@@ -1,7 +1,7 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day6.Day6;
-import day6.Fish;
+import advent.day6.Day6;
+import advent.day6.Fish;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

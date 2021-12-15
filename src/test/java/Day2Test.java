@@ -1,8 +1,8 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day2.Day2;
-import day2.Direction;
-import day2.DirectionAndMagnitude;
+import advent.day2.Day2;
+import advent.day2.Direction;
+import advent.day2.DirectionAndMagnitude;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

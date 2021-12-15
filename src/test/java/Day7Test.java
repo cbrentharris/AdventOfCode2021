@@ -1,7 +1,7 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day7.CrabSubmarine;
-import day7.Day7;
+import advent.day7.CrabSubmarine;
+import advent.day7.Day7;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

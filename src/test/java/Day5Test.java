@@ -1,8 +1,8 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day5.Coordinate;
-import day5.Day5;
-import day5.Line;
+import advent.day5.Coordinate;
+import advent.day5.Day5;
+import advent.day5.Line;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

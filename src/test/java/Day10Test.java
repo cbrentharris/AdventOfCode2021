@@ -1,7 +1,7 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day10.Day10;
-import day10.NavigationSubsystem;
+import advent.day10.Day10;
+import advent.day10.NavigationSubsystem;
 import io.vavr.collection.List;
 import org.junit.jupiter.api.Test;
 

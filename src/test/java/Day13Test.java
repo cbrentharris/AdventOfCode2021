@@ -1,7 +1,7 @@
 import static org.assertj.core.api.Assertions.*;
 
-import day13.Day13;
-import day13.FoldInstruction;
+import advent.day13.Day13;
+import advent.day13.FoldInstruction;
 import io.vavr.Tuple2;
 import io.vavr.collection.List;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ public class Day13Test extends AbstractAdventTest {
 
   @Test
   public void day13Part1() {
-    assertThat(Day13.visibleDots(1, getGridAndInstructions("./day13.txt"))).isEqualTo(17);
+    assertThat(Day13.visibleDots(1, getGridAndInstructions("./day13.txt"))).isEqualTo(724);
   }
 
   @Test
