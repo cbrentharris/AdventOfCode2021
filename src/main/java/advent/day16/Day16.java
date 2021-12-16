@@ -9,7 +9,6 @@ import java.util.BitSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-import org.apache.commons.lang3.ArrayUtils;
 
 public class Day16 {
   enum Operators {
