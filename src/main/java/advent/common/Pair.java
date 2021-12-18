@@ -1,4 +1,4 @@
-package advent.day4;
+package advent.common;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

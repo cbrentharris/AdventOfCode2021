@@ -1,6 +1,6 @@
 import static org.assertj.core.api.Assertions.*;
 
-import advent.day4.Pair;
+import advent.common.Pair;
 import advent.day8.Day8;
 import advent.day8.EncodedSignalPatterns;
 import advent.day8.SevenSegmentNumber;

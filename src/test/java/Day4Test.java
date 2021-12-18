@@ -1,9 +1,9 @@
 import static org.assertj.core.api.Assertions.*;
 
+import advent.common.Pair;
 import advent.day4.BingoBoard;
 import advent.day4.BingoSquare;
 import advent.day4.Day4;
-import advent.day4.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

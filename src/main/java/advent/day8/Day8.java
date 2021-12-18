@@ -1,6 +1,6 @@
 package advent.day8;
 
-import advent.day4.Pair;
+import advent.common.Pair;
 import io.vavr.control.Try;
 import java.util.List;
 

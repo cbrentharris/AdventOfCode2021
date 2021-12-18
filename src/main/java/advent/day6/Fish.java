@@ -1,6 +1,6 @@
 package advent.day6;
 
-import advent.day4.Pair;
+import advent.common.Pair;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import lombok.RequiredArgsConstructor;
